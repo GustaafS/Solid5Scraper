@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
 import { Typography, Link, CircularProgress, Box } from '@mui/material';
-
-// Fix voor Leaflet marker iconen
-delete (L.Icon.Default.prototype as any)._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-});
 
 interface Municipality {
   id: number;
@@ -31,6 +22,7 @@ interface Vacancy {
 const VacancyMap: React.FC = () => {
   const [municipalities, setMunicipalities] = useState<Municipality[]>([]);
   const [vacancies, setVacancies] = useState<Vacancy[]>([]);
+  const [geoJsonData, setGeoJsonData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -42,6 +34,7 @@ const VacancyMap: React.FC = () => {
         
         const municipalitiesResponse = await fetch('http://localhost:8000/api/municipalities');
         const vacanciesResponse = await fetch('http://localhost:8000/api/vacancies');
+        const geoJsonResponse = await fetch('/data/gemeentekaart.geojson');
 
         if (!municipalitiesResponse.ok) {
           throw new Error(`Failed to fetch municipalities: ${municipalitiesResponse.statusText}`);
@@ -51,8 +44,25 @@ const VacancyMap: React.FC = () => {
           throw new Error(`Failed to fetch vacancies: ${vacanciesResponse.statusText}`);
         }
 
+        if (!geoJsonResponse.ok) {
+          throw new Error(`Failed to fetch GeoJSON data: ${geoJsonResponse.statusText}`);
+        }
+
         const municipalitiesData = await municipalitiesResponse.json();
         const vacanciesData = await vacanciesResponse.json();
+        
+        // Log de response voor debugging
+        console.log('GeoJSON Response:', geoJsonResponse);
+        const geoJsonText = await geoJsonResponse.text();
+        console.log('GeoJSON Text:', geoJsonText);
+        
+        try {
+          const geoJsonData = JSON.parse(geoJsonText);
+          setGeoJsonData(geoJsonData);
+        } catch (parseError) {
+          console.error('Error parsing GeoJSON:', parseError);
+          throw new Error('Invalid GeoJSON format');
+        }
 
         if (!Array.isArray(municipalitiesData)) {
           throw new Error('Invalid municipalities data format');
@@ -62,9 +72,7 @@ const VacancyMap: React.FC = () => {
           throw new Error('Invalid vacancies data format');
         }
 
-        // Filter gemeenten zonder coördinaten
-        const validMunicipalities = municipalitiesData.filter(m => m.latitude !== null && m.longitude !== null);
-        setMunicipalities(validMunicipalities);
+        setMunicipalities(municipalitiesData);
         setVacancies(vacanciesData);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -76,6 +84,57 @@ const VacancyMap: React.FC = () => {
 
     fetchData();
   }, []);
+
+  const getMunicipalityVacancies = (municipalityId: number) => {
+    return vacancies.filter((vacancy) => vacancy.municipality_id === municipalityId);
+  };
+
+  const style = (feature: any) => {
+    const municipalityId = feature.properties.id;
+    const municipalityVacancies = getMunicipalityVacancies(municipalityId);
+    
+    return {
+      fillColor: municipalityVacancies.length > 0 ? '#4CAF50' : '#ccc',
+      weight: 1,
+      opacity: 1,
+      color: '#666',
+      fillOpacity: 0.7
+    };
+  };
+
+  const onEachFeature = (feature: any, layer: any) => {
+    const municipalityId = feature.properties.id;
+    const municipalityVacancies = getMunicipalityVacancies(municipalityId);
+    
+    layer.on({
+      mouseover: (e: any) => {
+        const layer = e.target;
+        layer.setStyle({
+          fillOpacity: 0.9,
+          weight: 2
+        });
+      },
+      mouseout: (e: any) => {
+        const layer = e.target;
+        layer.setStyle({
+          fillOpacity: 0.7,
+          weight: 1
+        });
+      }
+    });
+
+    layer.bindPopup(`
+      <div>
+        <h3>${feature.properties.name}</h3>
+        <p>Aantal vacatures: ${municipalityVacancies.length}</p>
+        ${municipalityVacancies.slice(0, 3).map((vacancy: Vacancy) => `
+          <div>
+            <a href="/vacancy/${vacancy.id}">${vacancy.title}</a>
+          </div>
+        `).join('')}
+      </div>
+    `);
+  };
 
   if (loading) {
     return (
@@ -93,10 +152,10 @@ const VacancyMap: React.FC = () => {
     );
   }
 
-  if (!municipalities.length) {
+  if (!geoJsonData) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-        <Typography>Geen gemeentes gevonden</Typography>
+        <Typography>Geen kaartdata gevonden</Typography>
       </Box>
     );
   }
@@ -111,32 +170,11 @@ const VacancyMap: React.FC = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      {municipalities.map((municipality) => {
-        const municipalityVacancies = vacancies.filter(
-          (vacancy) => vacancy.municipality_id === municipality.id
-        );
-
-        return (
-          <Marker
-            key={municipality.id}
-            position={[municipality.latitude, municipality.longitude]}
-          >
-            <Popup>
-              <Typography variant="h6">{municipality.name}</Typography>
-              <Typography variant="body2">
-                Aantal vacatures: {municipalityVacancies.length}
-              </Typography>
-              {municipalityVacancies.slice(0, 3).map((vacancy) => (
-                <Box key={vacancy.id} mt={1}>
-                  <Link href={`/vacancy/${vacancy.id}`} color="primary">
-                    {vacancy.title}
-                  </Link>
-                </Box>
-              ))}
-            </Popup>
-          </Marker>
-        );
-      })}
+      <GeoJSON
+        data={geoJsonData}
+        style={style}
+        onEachFeature={onEachFeature}
+      />
     </MapContainer>
   );
 };

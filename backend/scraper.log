@@ -5818,3 +5818,272 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2025-03-27 11:30:08,527 | INFO     | [Zwolle] Vacature 1/8: Werken bij Zwolle
 2025-03-27 11:30:08,531 | ERROR    | Fout bij scrapen van Zwolle: table vacancies has no column named found_date
 2025-03-27 11:30:09,642 | INFO     | Scraping voltooid: 1 succesvol, 30 gefaald, 0 vacatures gevonden
+2025-03-27 12:10:06,621 | INFO     | Database pad: C:\Users\gstevens\Projects\Solid5Scraper\backend\app\..\scraper.db
+2025-03-27 12:10:06,636 | INFO     | Database bevat al gemeenten, opnieuw toevoegen...
+2025-03-27 12:10:06,638 | INFO     | Toevoegen gemeente: Aa en Hunze met coördinaten: 53.01, 6.75
+2025-03-27 12:10:06,639 | INFO     | Toevoegen gemeente: Aalsmeer met coördinaten: 52.2667, 4.75
+2025-03-27 12:10:06,640 | INFO     | Toevoegen gemeente: Aalten met coördinaten: 51.9167, 6.5833
+2025-03-27 12:10:06,641 | INFO     | Toevoegen gemeente: Achtkarspelen met coördinaten: 53.2167, 6.1333
+2025-03-27 12:10:06,642 | INFO     | Toevoegen gemeente: Alblasserdam met coördinaten: 51.8667, 4.6667
+2025-03-27 12:10:06,646 | INFO     | Toevoegen gemeente: Albrandswaard met coördinaten: 51.8667, 4.4
+2025-03-27 12:10:06,646 | INFO     | Database pad: C:\Users\gstevens\Projects\Solid5Scraper\backend\app\..\scraper.db
+2025-03-27 12:10:06,650 | INFO     | Toevoegen gemeente: Alkmaar met coördinaten: 52.6333, 4.75
+2025-03-27 12:10:06,651 | INFO     | Database bevat al gemeenten, opnieuw toevoegen...
+2025-03-27 12:10:06,651 | INFO     | Toevoegen gemeente: Almelo met coördinaten: 52.35, 6.6667
+2025-03-27 12:10:06,652 | INFO     | Toevoegen gemeente: Almere met coördinaten: 52.3667, 5.2167
+2025-03-27 12:10:06,653 | INFO     | Toevoegen gemeente: Alphen aan den Rijn met coördinaten: 52.1333, 4.6667
+2025-03-27 12:10:06,654 | INFO     | Toevoegen gemeente: Bergen (NH) met coördinaten: 52.6667, 4.7
+2025-03-27 12:10:06,655 | INFO     | Toevoegen gemeente: Bergen op Zoom met coördinaten: 51.5, 4.3
+2025-03-27 12:10:06,656 | INFO     | Toevoegen gemeente: Berkelland met coördinaten: 52.1167, 6.5167
+2025-03-27 12:10:06,657 | INFO     | Toevoegen gemeente: Bernheze met coördinaten: 51.6833, 5.5167
+2025-03-27 12:10:06,658 | INFO     | Toevoegen gemeente: Best met coördinaten: 51.5167, 5.4
+2025-03-27 12:10:06,658 | INFO     | Toevoegen gemeente: Delft met coördinaten: 52.0167, 4.35
+2025-03-27 12:10:06,659 | INFO     | Toevoegen gemeente: Den Haag met coördinaten: 52.0833, 4.3
+2025-03-27 12:10:06,660 | INFO     | Toevoegen gemeente: Den Helder met coördinaten: 52.95, 4.75
+2025-03-27 12:10:06,663 | INFO     | Toevoegen gemeente: Ede met coördinaten: 52.05, 5.6667
+2025-03-27 12:10:06,663 | INFO     | Toevoegen gemeente: Eindhoven met coördinaten: 51.4333, 5.4833
+2025-03-27 12:10:06,664 | INFO     | Toevoegen gemeente: Groningen met coördinaten: 53.2167, 6.5667
+2025-03-27 12:10:06,666 | INFO     | Toevoegen gemeente: Haarlem met coördinaten: 52.3833, 4.6333
+2025-03-27 12:10:06,666 | INFO     | Toevoegen gemeente: Haarlemmermeer met coördinaten: 52.3, 4.7
+2025-03-27 12:10:06,667 | INFO     | Toevoegen gemeente: Leiden met coördinaten: 52.1667, 4.4833
+2025-03-27 12:10:06,668 | INFO     | Toevoegen gemeente: Leeuwarden met coördinaten: 53.2, 5.7833
+2025-03-27 12:10:06,669 | INFO     | Toevoegen gemeente: Maastricht met coördinaten: 50.85, 5.6833
+2025-03-27 12:10:06,669 | INFO     | Toevoegen gemeente: Nijmegen met coördinaten: 51.8333, 5.8667
+2025-03-27 12:10:06,670 | INFO     | Toevoegen gemeente: Rotterdam met coördinaten: 51.9167, 4.5
+2025-03-27 12:10:06,671 | INFO     | Toevoegen gemeente: Tilburg met coördinaten: 51.55, 5.0833
+2025-03-27 12:10:06,672 | INFO     | Toevoegen gemeente: Utrecht met coördinaten: 52.0833, 5.1167
+2025-03-27 12:10:06,672 | INFO     | Toevoegen gemeente: Zwolle met coördinaten: 52.5167, 6.1
+2025-03-27 12:10:06,685 | INFO     | Toevoegen gemeente: Aa en Hunze met coördinaten: 53.01, 6.75
+2025-03-27 12:10:06,686 | INFO     | Toevoegen gemeente: Aalsmeer met coördinaten: 52.2667, 4.75
+2025-03-27 12:10:06,688 | INFO     | Toevoegen gemeente: Aalten met coördinaten: 51.9167, 6.5833
+2025-03-27 12:10:06,689 | INFO     | Toevoegen gemeente: Achtkarspelen met coördinaten: 53.2167, 6.1333
+2025-03-27 12:10:06,690 | INFO     | Toevoegen gemeente: Alblasserdam met coördinaten: 51.8667, 4.6667
+2025-03-27 12:10:06,691 | INFO     | Toevoegen gemeente: Albrandswaard met coördinaten: 51.8667, 4.4
+2025-03-27 12:10:06,692 | INFO     | Start scraping voor 31 gemeenten
+ördinaten: 52.6333, 4.75
+2025-03-27 12:10:06,695 | INFO     | Toevoegen gemeente: Almelo met coördinaten: 52.35, 6.6667
+2025-03-27 12:10:06,696 | INFO     | Toevoegen gemeente: Almere met coördinaten: 52.3667, 5.2167
+2025-03-27 12:10:06,697 | INFO     | Toevoegen gemeente: Alphen aan den Rijn met coördinaten: 52.1333, 4.6667
+2025-03-27 12:10:06,697 | INFO     | Start scraping voor Aa en Hunze (https://www.werkeninnoordoostoverijssel.nl/vacatures/gemeente-aa-en-hunze)
+2025-03-27 12:10:06,698 | INFO     | Toevoegen gemeente: Bergen (NH) met coördinaten: 52.6667, 4.7
+2025-03-27 12:10:06,699 | INFO     | Toevoegen gemeente: Bergen op Zoom met coördinaten: 51.5, 4.3
+2025-03-27 12:10:06,700 | INFO     | Toevoegen gemeente: Berkelland met coördinaten: 52.1167, 6.5167
+2025-03-27 12:10:06,701 | INFO     | Toevoegen gemeente: Bernheze met coördinaten: 51.6833, 5.5167
+2025-03-27 12:10:06,702 | INFO     | Toevoegen gemeente: Best met coördinaten: 51.5167, 5.4
+2025-03-27 12:10:06,702 | INFO     | Toevoegen gemeente: Delft met coördinaten: 52.0167, 4.35
+2025-03-27 12:10:06,703 | INFO     | Toevoegen gemeente: Den Haag met coördinaten: 52.0833, 4.3
+2025-03-27 12:10:06,706 | INFO     | Toevoegen gemeente: Den Helder met coördinaten: 52.95, 4.75
+2025-03-27 12:10:06,707 | INFO     | Toevoegen gemeente: Ede met coördinaten: 52.05, 5.6667
+2025-03-27 12:10:06,709 | INFO     | Toevoegen gemeente: Eindhoven met coördinaten: 51.4333, 5.4833
+2025-03-27 12:10:06,714 | INFO     | Toevoegen gemeente: Groningen met coördinaten: 53.2167, 6.5667
+2025-03-27 12:10:06,715 | INFO     | Toevoegen gemeente: Haarlem met coördinaten: 52.3833, 4.6333
+2025-03-27 12:10:06,716 | INFO     | Toevoegen gemeente: Haarlemmermeer met coördinaten: 52.3, 4.7
+2025-03-27 12:10:06,717 | INFO     | Toevoegen gemeente: Leiden met coördinaten: 52.1667, 4.4833
+2025-03-27 12:10:06,717 | INFO     | Toevoegen gemeente: Leeuwarden met coördinaten: 53.2, 5.7833
+2025-03-27 12:10:06,718 | INFO     | Toevoegen gemeente: Maastricht met coördinaten: 50.85, 5.6833
+2025-03-27 12:10:06,718 | INFO     | Toevoegen gemeente: Nijmegen met coördinaten: 51.8333, 5.8667
+2025-03-27 12:10:06,719 | INFO     | Toevoegen gemeente: Rotterdam met coördinaten: 51.9167, 4.5
+2025-03-27 12:10:06,721 | INFO     | Toevoegen gemeente: Tilburg met coördinaten: 51.55, 5.0833
+2025-03-27 12:10:06,722 | INFO     | Toevoegen gemeente: Utrecht met coördinaten: 52.0833, 5.1167
+2025-03-27 12:10:06,723 | INFO     | Toevoegen gemeente: Zwolle met coördinaten: 52.5167, 6.1
+2025-03-27 12:10:06,743 | INFO     | Start scraping voor 31 gemeenten
+2025-03-27 12:10:06,745 | INFO     | Start scraping voor Aa en Hunze (https://www.werkeninnoordoostoverijssel.nl/vacatures/gemeente-aa-en-hunze)
+2025-03-27 12:10:09,246 | INFO     | Start scraping voor Aalsmeer (https://www.werkenbijaalsmeer.nl/)
+2025-03-27 12:10:09,346 | INFO     | Start scraping voor Aalsmeer (https://www.werkenbijaalsmeer.nl/)
+2025-03-27 12:10:10,613 | INFO     | Start scraping voor Aalten (https://www.werkeningelderland.nl/organisatie/gemeente-aalten)
+2025-03-27 12:10:10,793 | INFO     | Start scraping voor Aalten (https://www.werkeningelderland.nl/organisatie/gemeente-aalten)
+2025-03-27 12:10:12,089 | INFO     | Start scraping voor Achtkarspelen (https://www.werkeninfriesland.nl/organisaties/11/gemeente-achtkarspelen)
+2025-03-27 12:10:12,203 | INFO     | Start scraping voor Achtkarspelen (https://www.werkeninfriesland.nl/organisaties/11/gemeente-achtkarspelen)
+2025-03-27 12:10:13,553 | INFO     | Start scraping voor Alblasserdam (https://www.werkenbijdrechtsteden.nl/)
+2025-03-27 12:10:13,615 | INFO     | Start scraping voor Alblasserdam (https://www.werkenbijdrechtsteden.nl/)
+2025-03-27 12:10:15,005 | ERROR    | Fout bij scrapen van Aalsmeer: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:15,033 | ERROR    | Fout bij scrapen van Aa en Hunze: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:15,059 | ERROR    | Fout bij scrapen van Aa en Hunze: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:15,069 | ERROR    | Fout bij scrapen van Aalsmeer: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:15,199 | INFO     | HTTP Request: GET https://www.werkeninfriesland.nl/organisaties/11/gemeente-achtkarspelen "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:15,202 | ERROR    | Fout bij scrapen van Achtkarspelen: Redirect response '301 Moved Permanently' for url 'https://www.werkeninfriesland.nl/organisaties/11/gemeente-achtkarspelen'
+Redirect location: 'https://www.werkeninfriesland.nl/organisatie/gemeente-achtkarspelen/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:15,214 | INFO     | HTTP Request: GET https://www.werkeninfriesland.nl/organisaties/11/gemeente-achtkarspelen "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:15,222 | ERROR    | Fout bij scrapen van Achtkarspelen: Redirect response '301 Moved Permanently' for url 'https://www.werkeninfriesland.nl/organisaties/11/gemeente-achtkarspelen'
+Redirect location: 'https://www.werkeninfriesland.nl/organisatie/gemeente-achtkarspelen/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:15,355 | INFO     | HTTP Request: GET https://www.werkeningelderland.nl/organisatie/gemeente-aalten "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:15,358 | ERROR    | Fout bij scrapen van Aalten: Redirect response '301 Moved Permanently' for url 'https://www.werkeningelderland.nl/organisatie/gemeente-aalten'
+Redirect location: 'https://www.werkeningelderland.nl/organisaties/gemeente-aalten/gemeente-aalten-2/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:15,365 | INFO     | HTTP Request: GET https://www.werkeningelderland.nl/organisatie/gemeente-aalten "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:15,368 | ERROR    | Fout bij scrapen van Aalten: Redirect response '301 Moved Permanently' for url 'https://www.werkeningelderland.nl/organisatie/gemeente-aalten'
+Redirect location: 'https://www.werkeningelderland.nl/organisaties/gemeente-aalten/gemeente-aalten-2/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:15,407 | INFO     | HTTP Request: GET https://www.werkenbijdrechtsteden.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:15,423 | INFO     | HTTP Request: GET https://www.werkenbijdrechtsteden.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:15,555 | INFO     | [Alblasserdam] Vacature 1/102: Mijn account
+2025-03-27 12:10:15,571 | ERROR    | Fout bij scrapen van Alblasserdam: table vacancies has no column named found_date
+2025-03-27 12:10:15,612 | INFO     | [Alblasserdam] Vacature 1/102: Mijn account
+2025-03-27 12:10:15,640 | ERROR    | Fout bij scrapen van Alblasserdam: table vacancies has no column named found_date
+2025-03-27 12:10:16,595 | INFO     | Start scraping voor Albrandswaard (https://www.werkenvooralbrandswaard.nl/)
+2025-03-27 12:10:16,683 | INFO     | Start scraping voor Albrandswaard (https://www.werkenvooralbrandswaard.nl/)
+2025-03-27 12:10:17,422 | INFO     | Start scraping voor Alkmaar (https://www.werkeninnoordhollandnoord.nl/)
+2025-03-27 12:10:17,666 | INFO     | Start scraping voor Alkmaar (https://www.werkeninnoordhollandnoord.nl/)
+2025-03-27 12:10:18,306 | INFO     | Start scraping voor Almelo (https://www.werkenintwente.nl/vacatures/gemeente-almelo)
+2025-03-27 12:10:18,391 | INFO     | Start scraping voor Almelo (https://www.werkenintwente.nl/vacatures/gemeente-almelo)
+2025-03-27 12:10:19,457 | INFO     | Start scraping voor Almere (https://www.werkenbijalmere.nl/)
+2025-03-27 12:10:19,595 | INFO     | Start scraping voor Almere (https://www.werkenbijalmere.nl/)
+2025-03-27 12:10:20,714 | INFO     | Start scraping voor Alphen aan den Rijn (https://www.werkenbijalphen.nl/)
+2025-03-27 12:10:21,147 | INFO     | Start scraping voor Alphen aan den Rijn (https://www.werkenbijalphen.nl/)
+2025-03-27 12:10:22,377 | ERROR    | Fout bij scrapen van Alphen aan den Rijn: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:22,510 | ERROR    | Fout bij scrapen van Alphen aan den Rijn: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:22,534 | INFO     | HTTP Request: GET https://www.werkenvooralbrandswaard.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:22,596 | INFO     | [Albrandswaard] Vacature 1/48: Vacatures11
+2025-03-27 12:10:22,597 | ERROR    | Fout bij scrapen van Albrandswaard: table vacancies has no column named found_date
+2025-03-27 12:10:22,610 | INFO     | HTTP Request: GET https://www.werkeninnoordhollandnoord.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:22,630 | INFO     | [Alkmaar] Vacature 1/46: Banenzoekers
+2025-03-27 12:10:22,631 | ERROR    | Fout bij scrapen van Alkmaar: table vacancies has no column named found_date
+2025-03-27 12:10:22,666 | INFO     | HTTP Request: GET https://www.werkenvooralbrandswaard.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:22,669 | INFO     | HTTP Request: GET https://www.werkeninnoordhollandnoord.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:22,687 | INFO     | [Alkmaar] Vacature 1/46: Banenzoekers
+2025-03-27 12:10:22,689 | ERROR    | Fout bij scrapen van Alkmaar: table vacancies has no column named found_date
+2025-03-27 12:10:22,728 | INFO     | [Albrandswaard] Vacature 1/48: Vacatures11
+2025-03-27 12:10:22,729 | ERROR    | Fout bij scrapen van Albrandswaard: table vacancies has no column named found_date
+2025-03-27 12:10:23,132 | INFO     | HTTP Request: GET https://www.werkenbijalmere.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:23,157 | INFO     | [Almere] Vacature 1/26: Vacatures
+2025-03-27 12:10:23,158 | ERROR    | Fout bij scrapen van Almere: table vacancies has no column named found_date
+2025-03-27 12:10:23,977 | INFO     | HTTP Request: GET https://www.werkenbijalmere.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:24,009 | INFO     | [Almere] Vacature 1/26: Vacatures
+2025-03-27 12:10:24,011 | ERROR    | Fout bij scrapen van Almere: table vacancies has no column named found_date
+2025-03-27 12:10:33,401 | ERROR    | Fout bij scrapen van Almelo: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:34,427 | INFO     | Start scraping voor Bergen (NH) (https://www.werkenbijbuch.nl/)
+2025-03-27 12:10:34,432 | INFO     | Start scraping voor Bergen (NH) (https://www.werkenbijbuch.nl/)
+2025-03-27 12:10:35,024 | INFO     | Start scraping voor Bergen op Zoom (https://www.werkeninwestbrabant.nl/)
+2025-03-27 12:10:35,029 | INFO     | Start scraping voor Bergen op Zoom (https://www.werkeninwestbrabant.nl/)
+2025-03-27 12:10:35,624 | INFO     | Start scraping voor Berkelland (https://www.werkeningelderland.nl/organisatie/gemeente-berkelland)
+2025-03-27 12:10:35,626 | INFO     | Start scraping voor Berkelland (https://www.werkeningelderland.nl/organisatie/gemeente-berkelland)
+2025-03-27 12:10:36,235 | INFO     | Start scraping voor Bernheze (https://www.werkenbijbernheze.nl/)
+2025-03-27 12:10:36,241 | INFO     | Start scraping voor Bernheze (https://www.werkenbijbernheze.nl/)
+2025-03-27 12:10:36,850 | INFO     | Start scraping voor Best (https://www.werkenbijbest.nl/)
+2025-03-27 12:10:36,856 | INFO     | Start scraping voor Best (https://www.werkenbijbest.nl/)
+2025-03-27 12:10:37,567 | ERROR    | Fout bij scrapen van Bergen (NH): [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:37,568 | ERROR    | Fout bij scrapen van Bergen (NH): [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:37,574 | ERROR    | Fout bij scrapen van Best: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:37,582 | ERROR    | Fout bij scrapen van Bernheze: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:37,599 | ERROR    | Fout bij scrapen van Bernheze: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:37,605 | ERROR    | Fout bij scrapen van Best: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:37,738 | INFO     | HTTP Request: GET https://www.werkeninwestbrabant.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:37,792 | INFO     | HTTP Request: GET https://www.werkeninwestbrabant.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:37,835 | INFO     | [Bergen op Zoom] Vacature 1/87: Vacatures
+2025-03-27 12:10:37,837 | ERROR    | Fout bij scrapen van Bergen op Zoom: table vacancies has no column named found_date
+2025-03-27 12:10:37,858 | INFO     | HTTP Request: GET https://www.werkeningelderland.nl/organisatie/gemeente-berkelland "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:37,860 | ERROR    | Fout bij scrapen van Berkelland: Redirect response '301 Moved Permanently' for url 'https://www.werkeningelderland.nl/organisatie/gemeente-berkelland'
+Redirect location: 'https://www.werkeningelderland.nl/organisaties/gemeente-berkelland/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:37,871 | INFO     | [Bergen op Zoom] Vacature 1/87: Vacatures
+2025-03-27 12:10:37,872 | ERROR    | Fout bij scrapen van Bergen op Zoom: table vacancies has no column named found_date
+2025-03-27 12:10:37,880 | INFO     | HTTP Request: GET https://www.werkeningelderland.nl/organisatie/gemeente-berkelland "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:37,883 | ERROR    | Fout bij scrapen van Berkelland: Redirect response '301 Moved Permanently' for url 'https://www.werkeningelderland.nl/organisatie/gemeente-berkelland'
+Redirect location: 'https://www.werkeningelderland.nl/organisaties/gemeente-berkelland/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:38,878 | INFO     | Start scraping voor Delft (https://www.werkenvoordelft.nl/)
+2025-03-27 12:10:38,894 | INFO     | Start scraping voor Delft (https://www.werkenvoordelft.nl/)
+2025-03-27 12:10:39,663 | INFO     | Start scraping voor Den Haag (https://www.werkenbijdenhaag.nl/)
+2025-03-27 12:10:39,756 | INFO     | Start scraping voor Den Haag (https://www.werkenbijdenhaag.nl/)
+2025-03-27 12:10:40,431 | INFO     | Start scraping voor Den Helder (https://www.werkeninnoordhollandnoord.nl/)
+2025-03-27 12:10:40,520 | INFO     | Start scraping voor Den Helder (https://www.werkeninnoordhollandnoord.nl/)
+2025-03-27 12:10:41,132 | INFO     | Start scraping voor Ede (https://www.werkenbijede.nl/)
+2025-03-27 12:10:41,238 | INFO     | Start scraping voor Ede (https://www.werkenbijede.nl/)
+2025-03-27 12:10:41,817 | INFO     | Start scraping voor Eindhoven (https://www.werkenvooreindhoven.nl/)
+2025-03-27 12:10:41,879 | INFO     | Start scraping voor Eindhoven (https://www.werkenvooreindhoven.nl/)
+2025-03-27 12:10:42,564 | ERROR    | Fout bij scrapen van Den Haag: [SSL: TLSV1_UNRECOGNIZED_NAME] tlsv1 unrecognized name (_ssl.c:1018)
+2025-03-27 12:10:42,571 | ERROR    | Fout bij scrapen van Den Haag: [SSL: TLSV1_UNRECOGNIZED_NAME] tlsv1 unrecognized name (_ssl.c:1018)
+2025-03-27 12:10:42,575 | INFO     | HTTP Request: GET https://www.werkenbijede.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:42,606 | INFO     | HTTP Request: GET https://www.werkenvooreindhoven.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:42,622 | INFO     | [Ede] Vacature 1/7: Vacatures
+2025-03-27 12:10:42,623 | ERROR    | Fout bij scrapen van Ede: table vacancies has no column named found_date
+2025-03-27 12:10:42,635 | INFO     | [Eindhoven] Vacature 1/5: Vacatures
+ooreindhoven.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:42,637 | ERROR    | Fout bij scrapen van Eindhoven: table vacancies has no column named found_date
+2025-03-27 12:10:42,649 | INFO     | HTTP Request: GET https://www.werkeninnoordhollandnoord.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:42,651 | INFO     | HTTP Request: GET https://www.werkenbijede.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:42,661 | INFO     | [Eindhoven] Vacature 1/5: Vacatures
+2025-03-27 12:10:42,662 | ERROR    | Fout bij scrapen van Eindhoven: table vacancies has no column named found_date
+2025-03-27 12:10:42,667 | INFO     | [Den Helder] Vacature 1/46: Banenzoekers
+2025-03-27 12:10:42,671 | INFO     | HTTP Request: GET https://www.werkeninnoordhollandnoord.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:42,686 | INFO     | [Den Helder] Vacature 1/46: Banenzoekers
+2025-03-27 12:10:42,687 | ERROR    | Fout bij scrapen van Den Helder: table vacancies has no column named found_date
+2025-03-27 12:10:42,699 | INFO     | [Ede] Vacature 1/7: Vacatures
+2025-03-27 12:10:42,701 | ERROR    | Fout bij scrapen van Den Helder: table vacancies has no column named found_date
+2025-03-27 12:10:42,707 | ERROR    | Fout bij scrapen van Ede: table vacancies has no column named found_date
+2025-03-27 12:10:43,183 | INFO     | HTTP Request: GET https://www.werkenvoordelft.nl/ "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:43,183 | INFO     | HTTP Request: GET https://www.werkenvoordelft.nl/ "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:43,185 | ERROR    | Fout bij scrapen van Delft: Redirect response '301 Moved Permanently' for url 'https://www.werkenvoordelft.nl/'
+Redirect location: 'https://werkenvoordelft.nl/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:43,186 | ERROR    | Fout bij scrapen van Delft: Redirect response '301 Moved Permanently' for url 'https://www.werkenvoordelft.nl/'
+Redirect location: 'https://werkenvoordelft.nl/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:44,212 | INFO     | Start scraping voor Groningen (https://www.werkenbijgemeentegroningen.nl/)
+2025-03-27 12:10:44,228 | INFO     | Start scraping voor Groningen (https://www.werkenbijgemeentegroningen.nl/)
+2025-03-27 12:10:44,952 | INFO     | Start scraping voor Haarlem (https://www.werkenbijhaarlem.nl/)
+2025-03-27 12:10:44,952 | INFO     | Start scraping voor Haarlem (https://www.werkenbijhaarlem.nl/)
+2025-03-27 12:10:45,657 | INFO     | Start scraping voor Haarlemmermeer (https://www.werkenbijhaarlemmermeer.nl/)
+2025-03-27 12:10:45,710 | INFO     | Start scraping voor Haarlemmermeer (https://www.werkenbijhaarlemmermeer.nl/)
+2025-03-27 12:10:46,239 | INFO     | Start scraping voor Leiden (https://www.werkenbijleiden.nl/)
+2025-03-27 12:10:46,291 | INFO     | Start scraping voor Leiden (https://www.werkenbijleiden.nl/)
+2025-03-27 12:10:46,833 | INFO     | Start scraping voor Leeuwarden (https://www.werkenbijleeuwarden.nl/)
+2025-03-27 12:10:46,887 | INFO     | Start scraping voor Leeuwarden (https://www.werkenbijleeuwarden.nl/)
+2025-03-27 12:10:47,479 | ERROR    | Fout bij scrapen van Leiden: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:47,481 | ERROR    | Fout bij scrapen van Leiden: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:47,502 | ERROR    | Fout bij scrapen van Groningen: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.werkenbijgemeentegroningen.nl'. (_ssl.c:1018)
+2025-03-27 12:10:47,560 | ERROR    | Fout bij scrapen van Groningen: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.werkenbijgemeentegroningen.nl'. (_ssl.c:1018)
+2025-03-27 12:10:47,582 | ERROR    | Fout bij scrapen van Haarlem: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1018)
+2025-03-27 12:10:47,586 | ERROR    | Fout bij scrapen van Haarlem: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1018)
+2025-03-27 12:10:47,979 | INFO     | HTTP Request: GET https://www.werkenbijleeuwarden.nl/ "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:47,981 | ERROR    | Fout bij scrapen van Leeuwarden: Redirect response '301 Moved Permanently' for url 'https://www.werkenbijleeuwarden.nl/'
+Redirect location: 'https://werkenbijleeuwarden.nl/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:48,052 | INFO     | HTTP Request: GET https://www.werkenbijleeuwarden.nl/ "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:48,054 | ERROR    | Fout bij scrapen van Leeuwarden: Redirect response '301 Moved Permanently' for url 'https://www.werkenbijleeuwarden.nl/'
+Redirect location: 'https://werkenbijleeuwarden.nl/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:48,206 | INFO     | HTTP Request: GET https://www.werkenbijhaarlemmermeer.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:48,603 | INFO     | HTTP Request: GET https://www.werkenbijhaarlemmermeer.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:49,301 | INFO     | Start scraping voor Maastricht (https://www.werkenbijgemeentemaastricht.nl/)
+2025-03-27 12:10:49,699 | INFO     | Start scraping voor Maastricht (https://www.werkenbijgemeentemaastricht.nl/)
+2025-03-27 12:10:49,742 | INFO     | Start scraping voor Nijmegen (https://www.werkenbijnijmegen.nl/)
+2025-03-27 12:10:50,294 | INFO     | Start scraping voor Nijmegen (https://www.werkenbijnijmegen.nl/)
+2025-03-27 12:10:50,333 | INFO     | Start scraping voor Rotterdam (https://www.werkenbijdegemeenterotterdam.nl/)
+2025-03-27 12:10:50,889 | INFO     | Start scraping voor Rotterdam (https://www.werkenbijdegemeenterotterdam.nl/)
+2025-03-27 12:10:50,923 | INFO     | Start scraping voor Tilburg (https://www.werkeninmiddenbrabant.nl/)
+2025-03-27 12:10:51,485 | INFO     | Start scraping voor Tilburg (https://www.werkeninmiddenbrabant.nl/)
+2025-03-27 12:10:51,511 | INFO     | Start scraping voor Utrecht (https://www.werkenbijutrecht.nl/)
+2025-03-27 12:10:52,078 | INFO     | Start scraping voor Utrecht (https://www.werkenbijutrecht.nl/)
+2025-03-27 12:10:52,126 | ERROR    | Fout bij scrapen van Maastricht: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:52,133 | ERROR    | Fout bij scrapen van Rotterdam: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:52,203 | INFO     | HTTP Request: GET https://www.werkenbijnijmegen.nl/ "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:52,206 | ERROR    | Fout bij scrapen van Nijmegen: Redirect response '301 Moved Permanently' for url 'https://www.werkenbijnijmegen.nl/'
+Redirect location: 'https://www.nijmegen.nl/over-de-gemeente/werken-bij-gemeente-nijmegen/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:52,252 | INFO     | HTTP Request: GET https://www.werkenbijutrecht.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:52,337 | INFO     | [Utrecht] Vacature 1/81: Inloggen medewerker
+2025-03-27 12:10:52,338 | ERROR    | Fout bij scrapen van Utrecht: table vacancies has no column named found_date
+2025-03-27 12:10:52,537 | ERROR    | Fout bij scrapen van Rotterdam: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:52,551 | ERROR    | Fout bij scrapen van Maastricht: [Errno 11001] getaddrinfo failed
+2025-03-27 12:10:52,646 | INFO     | HTTP Request: GET https://www.werkenbijutrecht.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:10:52,666 | INFO     | HTTP Request: GET https://www.werkenbijnijmegen.nl/ "HTTP/1.1 301 Moved Permanently"
+2025-03-27 12:10:52,670 | ERROR    | Fout bij scrapen van Nijmegen: Redirect response '301 Moved Permanently' for url 'https://www.werkenbijnijmegen.nl/'
+Redirect location: 'https://www.nijmegen.nl/over-de-gemeente/werken-bij-gemeente-nijmegen/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+2025-03-27 12:10:52,745 | INFO     | [Utrecht] Vacature 1/81: Inloggen medewerker
+2025-03-27 12:10:52,746 | ERROR    | Fout bij scrapen van Utrecht: table vacancies has no column named found_date
+2025-03-27 12:11:03,162 | ERROR    | Fout bij scrapen van Tilburg: [Errno 11001] getaddrinfo failed
+2025-03-27 12:11:03,162 | ERROR    | Fout bij scrapen van Tilburg: [Errno 11001] getaddrinfo failed
+2025-03-27 12:11:04,191 | INFO     | Start scraping voor Zwolle (https://www.werkenbijzwolle.nl/)
+2025-03-27 12:11:04,195 | INFO     | Start scraping voor Zwolle (https://www.werkenbijzwolle.nl/)
+2025-03-27 12:11:07,005 | INFO     | HTTP Request: GET https://www.werkenbijzwolle.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:11:07,011 | INFO     | HTTP Request: GET https://www.werkenbijzwolle.nl/ "HTTP/1.1 200 OK"
+2025-03-27 12:11:07,021 | INFO     | [Zwolle] Vacature 1/8: Werken bij Zwolle
+2025-03-27 12:11:07,022 | ERROR    | Fout bij scrapen van Zwolle: table vacancies has no column named found_date
+2025-03-27 12:11:07,028 | INFO     | [Zwolle] Vacature 1/8: Werken bij Zwolle
+2025-03-27 12:11:07,043 | ERROR    | Fout bij scrapen van Zwolle: table vacancies has no column named found_date
+2025-03-27 12:11:08,043 | INFO     | Scraping voltooid: 1 succesvol, 30 gefaald, 0 vacatures gevonden
+2025-03-27 12:11:08,059 | INFO     | Scraping voltooid: 1 succesvol, 30 gefaald, 0 vacatures gevonden

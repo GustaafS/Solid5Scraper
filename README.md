@@ -1,66 +1,59 @@
-# Nederlandse Gemeentelijke Vacaturetracker
+# Solid5Scraper
 
-Een geautomatiseerd systeem dat dagelijks de vacaturesites van alle Nederlandse gemeenten controleert op nieuwe vacatures.
+Een applicatie voor het scrapen en visualiseren van gemeentelijke vacatures in Nederland.
 
 ## Features
 
-- Dagelijkse scraping van alle Nederlandse gemeentewebsites
-- Interactieve kaart-interface voor vacaturevisualisatie
-- Geavanceerde zoek- en filterfunctionaliteit
-- Gebruikersbeheer met verschillende toegangsniveaus
-- Specifieke focus op datafuncties
+- Scrapen van vacatures van alle Nederlandse gemeentelijke websites
+- Interactieve kaart met vacature locaties
+- Real-time updates van nieuwe vacatures
+- Filtering en zoekfunctionaliteit
 
 ## Technische Stack
 
-- Backend: Python met FastAPI
-- Database: PostgreSQL met PostGIS
-- Frontend: React.js met Leaflet/MapboxGL
-- Scraping: Python met BeautifulSoup
-- Authenticatie: JWT
+### Backend
+- Python FastAPI
+- SQLite database
+- BeautifulSoup4 voor web scraping
 
-## Setup
+### Frontend
+- React met TypeScript
+- Leaflet voor kaartvisualisatie
+- Material-UI voor de gebruikersinterface
 
-1. Clone de repository
-2. Maak een virtuele omgeving aan:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Linux/Mac
-   .\venv\Scripts\activate   # Windows
-   ```
-3. Installeer dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Maak een `.env` bestand aan met de volgende variabelen:
-   ```
-   DATABASE_URL=postgresql://user:password@localhost:5432/vacaturetracker
-   SECRET_KEY=your-secret-key
-   ```
-5. Initialiseer de database:
-   ```bash
-   alembic upgrade head
-   ```
-6. Start de development server:
-   ```bash
-   uvicorn app.main:app --reload
-   ```
+## Installatie
 
-## Project Structuur
+### Backend
 
+```bash
+cd backend
+pip install -r requirements.txt
+python -m uvicorn app.main:app --reload
 ```
-├── app/
-│   ├── api/           # API endpoints
-│   ├── core/          # Core configuratie
-│   ├── db/            # Database modellen en migraties
-│   ├── models/        # Pydantic modellen
-│   ├── schemas/       # Database schemas
-│   ├── services/      # Business logic
-│   └── utils/         # Utility functies
-├── scraper/           # Scraping scripts
-├── tests/             # Test bestanden
-├── alembic/           # Database migraties
-└── frontend/          # React frontend
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm start
 ```
+
+De applicatie is nu beschikbaar op:
+- Frontend: http://localhost:3001
+- Backend API: http://localhost:8000
+
+## API Endpoints
+
+- `GET /api/municipalities`: Lijst van alle gemeenten
+- `GET /api/vacancies`: Lijst van alle vacatures
+- `GET /api/vacancies/{municipality_id}`: Vacatures per gemeente
+
+## Development
+
+Het project is opgedeeld in twee hoofdcomponenten:
+1. Een Python backend voor het scrapen en API functionaliteit
+2. Een React frontend voor de gebruikersinterface
 
 ## Licentie
 
