@@ -1,0 +1,211 @@
+{
+  "municipalities": [
+    {
+      "id": 1,
+      "name": "Aalsmeer",
+      "latitude": 52.2592,
+      "longitude": 4.7597,
+      "website": "https://www.aalsmeer.nl",
+      "vacancy_url": "https://www.aalsmeer.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 2,
+      "name": "Aalten",
+      "latitude": 51.9247,
+      "longitude": 6.5806,
+      "website": "https://www.aalten.nl",
+      "vacancy_url": "https://www.aalten.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 3,
+      "name": "Achtkarspelen",
+      "latitude": 53.2167,
+      "longitude": 6.1333,
+      "website": "https://www.achtkarspelen.nl",
+      "vacancy_url": "https://www.achtkarspelen.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 4,
+      "name": "Alblasserdam",
+      "latitude": 51.8667,
+      "longitude": 4.6667,
+      "website": "https://www.alblasserdam.nl",
+      "vacancy_url": "https://www.alblasserdam.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 5,
+      "name": "Albrandswaard",
+      "latitude": 51.8667,
+      "longitude": 4.4167,
+      "website": "https://www.albrandswaard.nl",
+      "vacancy_url": "https://www.albrandswaard.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 6,
+      "name": "Alkmaar",
+      "latitude": 52.6333,
+      "longitude": 4.7500,
+      "website": "https://www.alkmaar.nl",
+      "vacancy_url": "https://www.alkmaar.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 7,
+      "name": "Almelo",
+      "latitude": 52.3500,
+      "longitude": 6.6667,
+      "website": "https://www.almelo.nl",
+      "vacancy_url": "https://www.almelo.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 8,
+      "name": "Almere",
+      "latitude": 52.3508,
+      "longitude": 5.2647,
+      "website": "https://www.almere.nl",
+      "vacancy_url": "https://www.almere.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 9,
+      "name": "Alphen aan den Rijn",
+      "latitude": 52.1333,
+      "longitude": 4.6667,
+      "website": "https://www.alphenaandenrijn.nl",
+      "vacancy_url": "https://www.alphenaandenrijn.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 10,
+      "name": "Alphen-Chaam",
+      "latitude": 51.5000,
+      "longitude": 4.8833,
+      "website": "https://www.alphen-chaam.nl",
+      "vacancy_url": "https://www.alphen-chaam.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 11,
+      "name": "Altena",
+      "latitude": 51.7833,
+      "longitude": 4.9667,
+      "website": "https://www.gemeentealtena.nl",
+      "vacancy_url": "https://www.gemeentealtena.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 12,
+      "name": "Ameland",
+      "latitude": 53.4500,
+      "longitude": 5.7500,
+      "website": "https://www.ameland.nl",
+      "vacancy_url": "https://www.ameland.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 13,
+      "name": "Amersfoort",
+      "latitude": 52.1500,
+      "longitude": 5.3833,
+      "website": "https://www.amersfoort.nl",
+      "vacancy_url": "https://www.amersfoort.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 14,
+      "name": "Amstelveen",
+      "latitude": 52.3000,
+      "longitude": 4.8500,
+      "website": "https://www.amstelveen.nl",
+      "vacancy_url": "https://www.amstelveen.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 15,
+      "name": "Amsterdam",
+      "latitude": 52.3676,
+      "longitude": 4.9041,
+      "website": "https://www.amsterdam.nl",
+      "vacancy_url": "https://www.amsterdam.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 16,
+      "name": "Apeldoorn",
+      "latitude": 52.2167,
+      "longitude": 5.9667,
+      "website": "https://www.apeldoorn.nl",
+      "vacancy_url": "https://www.apeldoorn.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 17,
+      "name": "Arnhem",
+      "latitude": 51.9833,
+      "longitude": 5.9167,
+      "website": "https://www.arnhem.nl",
+      "vacancy_url": "https://www.arnhem.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 18,
+      "name": "Assen",
+      "latitude": 52.9833,
+      "longitude": 6.5667,
+      "website": "https://www.assen.nl",
+      "vacancy_url": "https://www.assen.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 19,
+      "name": "Asten",
+      "latitude": 51.4000,
+      "longitude": 5.7500,
+      "website": "https://www.asten.nl",
+      "vacancy_url": "https://www.asten.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 20,
+      "name": "Baarle-Nassau",
+      "latitude": 51.4500,
+      "longitude": 4.9333,
+      "website": "https://www.baarle-nassau.nl",
+      "vacancy_url": "https://www.baarle-nassau.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 21,
+      "name": "Baarn",
+      "latitude": 52.2167,
+      "longitude": 5.2833,
+      "website": "https://www.baarn.nl",
+      "vacancy_url": "https://www.baarn.nl/werkenbij",
+      "enabled": true
+    },
+    {
+      "id": 22,
+      "name": "Breda",
+      "latitude": 51.5719,
+      "longitude": 4.7683,
+      "website": "https://www.breda.nl",
+      "vacancy_url": "https://www.breda.nl/gemeente/vacatures/",
+      "enabled": true
+    },
+    {
+      "id": 23,
+      "name": "Nijmegen",
+      "latitude": 51.8126,
+      "longitude": 5.8372,
+      "website": "https://www.nijmegen.nl",
+      "vacancy_url": "https://www.nijmegen.nl/gemeente/vacatures/",
+      "enabled": true
+    }
+  ]
+} 
