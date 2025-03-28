@@ -16,14 +16,14 @@ import {
 interface Vacancy {
   id: number;
   title: string;
-  municipality_id: number;
+  municipality_id: string;
   description: string;
   function_category: string;
   education_level: string;
 }
 
 interface Municipality {
-  id: number;
+  id: string;
   name: string;
 }
 
@@ -31,6 +31,7 @@ const VacancyList: React.FC = () => {
   const [vacancies, setVacancies] = useState<Vacancy[]>([]);
   const [municipalities, setMunicipalities] = useState<Municipality[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedEducationLevel, setSelectedEducationLevel] = useState('');
@@ -43,13 +44,29 @@ const VacancyList: React.FC = () => {
           fetch('http://localhost:8000/api/municipalities')
         ]);
 
+        if (!vacanciesResponse.ok || !municipalitiesResponse.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
         const vacanciesData = await vacanciesResponse.json();
         const municipalitiesData = await municipalitiesResponse.json();
 
-        setVacancies(vacanciesData);
-        setMunicipalities(municipalitiesData);
+        if (!Array.isArray(vacanciesData)) {
+          setVacancies([]);
+        } else {
+          setVacancies(vacanciesData);
+        }
+
+        if (!Array.isArray(municipalitiesData)) {
+          setMunicipalities([]);
+        } else {
+          setMunicipalities(municipalitiesData);
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
+        setError(error instanceof Error ? error.message : 'An error occurred');
+        setVacancies([]);
+        setMunicipalities([]);
       } finally {
         setLoading(false);
       }
@@ -59,21 +76,29 @@ const VacancyList: React.FC = () => {
   }, []);
 
   const filteredVacancies = vacancies.filter((vacancy) => {
-    const matchesSearch = vacancy.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      vacancy.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = (vacancy.title?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+      (vacancy.description?.toLowerCase() || '').includes(searchTerm.toLowerCase());
     const matchesCategory = !selectedCategory || vacancy.function_category === selectedCategory;
     const matchesEducation = !selectedEducationLevel || vacancy.education_level === selectedEducationLevel;
 
     return matchesSearch && matchesCategory && matchesEducation;
   });
 
-  const uniqueCategories = Array.from(new Set(vacancies.map(v => v.function_category)));
-  const uniqueEducationLevels = Array.from(new Set(vacancies.map(v => v.education_level)));
+  const uniqueCategories = Array.from(new Set(vacancies.filter(v => v.function_category).map(v => v.function_category)));
+  const uniqueEducationLevels = Array.from(new Set(vacancies.filter(v => v.education_level).map(v => v.education_level)));
 
   if (loading) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
         <CircularProgress />
+      </Box>
+    );
+  }
+
+  if (error) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+        <Typography color="error">Error: {error}</Typography>
       </Box>
     );
   }
@@ -129,43 +154,49 @@ const VacancyList: React.FC = () => {
       </Box>
 
       <Box display="flex" flexWrap="wrap" gap={2}>
-        {filteredVacancies.map((vacancy) => {
-          const municipality = municipalities.find(m => m.id === vacancy.municipality_id);
-          return (
-            <Box key={vacancy.id} flex={1} minWidth={300}>
-              <Card>
-                <CardContent>
-                  <Typography variant="h6" gutterBottom>
-                    {vacancy.title}
-                  </Typography>
-                  <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-                    {municipality?.name}
-                  </Typography>
-                  <Typography variant="body2" paragraph>
-                    {vacancy.description.length > 150
-                      ? `${vacancy.description.substring(0, 150)}...`
-                      : vacancy.description}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    Functiecategorie: {vacancy.function_category}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" gutterBottom>
-                    Opleidingsniveau: {vacancy.education_level}
-                  </Typography>
-                  <Box mt={2}>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      href={`/vacancy/${vacancy.id}`}
-                    >
-                      Bekijk vacature
-                    </Button>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Box>
-          );
-        })}
+        {filteredVacancies.length === 0 ? (
+          <Typography variant="body1" color="textSecondary">
+            Geen vacatures gevonden
+          </Typography>
+        ) : (
+          filteredVacancies.map((vacancy) => {
+            const municipality = municipalities.find(m => m.id === vacancy.municipality_id);
+            return (
+              <Box key={vacancy.id} flex={1} minWidth={300}>
+                <Card>
+                  <CardContent>
+                    <Typography variant="h6" gutterBottom>
+                      {vacancy.title}
+                    </Typography>
+                    <Typography variant="subtitle1" color="textSecondary" gutterBottom>
+                      {municipality?.name || 'Onbekende gemeente'}
+                    </Typography>
+                    <Typography variant="body2" paragraph>
+                      {vacancy.description && vacancy.description.length > 150
+                        ? `${vacancy.description.substring(0, 150)}...`
+                        : vacancy.description}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                      Functiecategorie: {vacancy.function_category || 'Niet gespecificeerd'}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" gutterBottom>
+                      Opleidingsniveau: {vacancy.education_level || 'Niet gespecificeerd'}
+                    </Typography>
+                    <Box mt={2}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        href={`/vacancy/${vacancy.id}`}
+                      >
+                        Bekijk vacature
+                      </Button>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Box>
+            );
+          })
+        )}
       </Box>
     </Box>
   );

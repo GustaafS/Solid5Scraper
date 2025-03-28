@@ -1123,3 +1123,53 @@ async def update_municipality_config(municipality_id: int, config: Municipality)
 async def get_progress():
     """Haal de huidige scraping voortgang op"""
     return scraping_progress 
+
+@app.get("/api/vacancies/{vacancy_id}")
+async def get_vacancy(vacancy_id: int):
+    """Haal een specifieke vacature op"""
+    try:
+        db = await get_db()
+        async with db.execute(
+            "SELECT * FROM vacancies WHERE id = ?", 
+            (vacancy_id,)
+        ) as cursor:
+            row = await cursor.fetchone()
+            if row is None:
+                raise HTTPException(status_code=404, detail="Vacature niet gevonden")
+            
+            # Convert row to dictionary
+            columns = [column[0] for column in cursor.description]
+            vacancy = dict(zip(columns, row))
+            
+            return vacancy
+    except Exception as e:
+        logger.error(f"Error fetching vacancy {vacancy_id}: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        if 'db' in locals():
+            await db.close()
+
+@app.get("/api/municipalities/{municipality_id}")
+async def get_municipality(municipality_id: str):
+    """Haal een specifieke gemeente op"""
+    try:
+        db = await get_db()
+        async with db.execute(
+            "SELECT * FROM municipalities WHERE id = ?", 
+            (municipality_id,)
+        ) as cursor:
+            row = await cursor.fetchone()
+            if row is None:
+                raise HTTPException(status_code=404, detail="Gemeente niet gevonden")
+            
+            # Convert row to dictionary
+            columns = [column[0] for column in cursor.description]
+            municipality = dict(zip(columns, row))
+            
+            return municipality
+    except Exception as e:
+        logger.error(f"Error fetching municipality {municipality_id}: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        if 'db' in locals():
+            await db.close() 
