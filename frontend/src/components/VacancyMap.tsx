@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { Typography, Link, CircularProgress, Box } from '@mui/material';
 
 interface Municipality {
-  id: number;
+  id: string;
   name: string;
   latitude: number;
   longitude: number;
@@ -13,7 +13,7 @@ interface Municipality {
 interface Vacancy {
   id: number;
   title: string;
-  municipality_id: number;
+  municipality_id: string;
   description: string;
   function_category: string;
   education_level: string;
@@ -50,19 +50,7 @@ const VacancyMap: React.FC = () => {
 
         const municipalitiesData = await municipalitiesResponse.json();
         const vacanciesData = await vacanciesResponse.json();
-        
-        // Log de response voor debugging
-        console.log('GeoJSON Response:', geoJsonResponse);
-        const geoJsonText = await geoJsonResponse.text();
-        console.log('GeoJSON Text:', geoJsonText);
-        
-        try {
-          const geoJsonData = JSON.parse(geoJsonText);
-          setGeoJsonData(geoJsonData);
-        } catch (parseError) {
-          console.error('Error parsing GeoJSON:', parseError);
-          throw new Error('Invalid GeoJSON format');
-        }
+        const geoJsonData = await geoJsonResponse.json();
 
         if (!Array.isArray(municipalitiesData)) {
           throw new Error('Invalid municipalities data format');
@@ -74,6 +62,7 @@ const VacancyMap: React.FC = () => {
 
         setMunicipalities(municipalitiesData);
         setVacancies(vacanciesData);
+        setGeoJsonData(geoJsonData);
       } catch (error) {
         console.error('Error fetching data:', error);
         setError(error instanceof Error ? error.message : 'An error occurred while fetching data');
@@ -85,12 +74,12 @@ const VacancyMap: React.FC = () => {
     fetchData();
   }, []);
 
-  const getMunicipalityVacancies = (municipalityId: number) => {
-    return vacancies.filter((vacancy) => vacancy.municipality_id === municipalityId);
+  const getMunicipalityVacancies = (statcode: string) => {
+    return vacancies.filter((vacancy) => vacancy.municipality_id === statcode);
   };
 
   const style = (feature: any) => {
-    const municipalityId = feature.properties.id;
+    const municipalityId = feature.properties.statcode;
     const municipalityVacancies = getMunicipalityVacancies(municipalityId);
     
     return {
@@ -103,7 +92,7 @@ const VacancyMap: React.FC = () => {
   };
 
   const onEachFeature = (feature: any, layer: any) => {
-    const municipalityId = feature.properties.id;
+    const municipalityId = feature.properties.statcode;
     const municipalityVacancies = getMunicipalityVacancies(municipalityId);
     
     layer.on({
@@ -125,7 +114,7 @@ const VacancyMap: React.FC = () => {
 
     layer.bindPopup(`
       <div>
-        <h3>${feature.properties.name}</h3>
+        <h3>${feature.properties.statnaam}</h3>
         <p>Aantal vacatures: ${municipalityVacancies.length}</p>
         ${municipalityVacancies.slice(0, 3).map((vacancy: Vacancy) => `
           <div>
@@ -162,7 +151,7 @@ const VacancyMap: React.FC = () => {
 
   return (
     <MapContainer
-      center={[52.1326, 5.2913]} // Centrum van Nederland
+      center={[52.1326, 5.2913]}
       zoom={8}
       style={{ height: '100vh', width: '100%' }}
     >
