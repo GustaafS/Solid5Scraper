@@ -12952,3 +12952,15 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2025-03-28 15:19:10,009 | INFO     | Database geïnitialiseerd
 2025-03-28 15:19:10,023 | INFO     | Alle gemeenten succesvol geïmporteerd uit CSV
 2025-03-28 15:19:10,024 | INFO     | Gemeenten geïmporteerd uit CSV
+2025-03-28 15:27:06,506 | INFO     | Database tabellen succesvol aangemaakt
+2025-03-28 15:27:06,507 | INFO     | Database geïnitialiseerd
+2025-03-28 15:27:06,536 | INFO     | Alle gemeenten succesvol geïmporteerd uit CSV
+2025-03-28 15:27:06,537 | INFO     | Gemeenten geïmporteerd uit CSV
+2025-03-28 15:36:28,864 | INFO     | Database tabellen succesvol aangemaakt
+2025-03-28 15:36:28,865 | INFO     | Database geïnitialiseerd
+2025-03-28 15:36:28,887 | INFO     | Alle gemeenten succesvol geïmporteerd uit CSV
+2025-03-28 15:36:28,889 | INFO     | Gemeenten geïmporteerd uit CSV
+2025-03-31 09:32:19,942 | INFO     | Database tabellen succesvol aangemaakt
+2025-03-31 09:32:19,946 | INFO     | Database geïnitialiseerd
+2025-03-31 09:32:20,043 | INFO     | Alle gemeenten succesvol geïmporteerd uit CSV
+2025-03-31 09:32:20,045 | INFO     | Gemeenten geïmporteerd uit CSV
