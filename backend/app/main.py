@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, BackgroundTasks
+from fastapi import FastAPI, HTTPException, BackgroundTasks, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -17,9 +17,14 @@ import os
 import sys
 import aiosqlite
 import csv
+from fastapi.templating import Jinja2Templates
+from dotenv import load_dotenv
 
 # Voeg de parent directory toe aan de Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Laad environment variables
+load_dotenv()
 
 # Logging configuratie
 logging.basicConfig(
@@ -45,6 +50,9 @@ app.add_middleware(
 
 # Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Templates configuratie
+templates = Jinja2Templates(directory="templates")
 
 # Data modellen
 class Vacancy(BaseModel):
@@ -879,193 +887,36 @@ async def start_scraping(background_tasks: BackgroundTasks):
     except Exception as e:
         return {"success": False, "error": str(e)}
 
-# Admin endpoints
+# Admin routes
 @app.get("/admin", response_class=HTMLResponse)
-async def get_admin_dashboard():
-    """Admin dashboard pagina"""
-    return """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Solid5 Scraper Admin</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            body { background-color: #f8f9fa; }
-            .card { margin-bottom: 1rem; }
-            .log-entry { 
-                padding: 0.5rem;
-                border-bottom: 1px solid #dee2e6;
-                font-family: monospace;
-            }
-            .log-entry:last-child { border-bottom: none; }
-            .success { color: #198754; }
-            .error { color: #dc3545; }
-            .warning { color: #ffc107; }
-            .info { color: #0dcaf0; }
-            .progress { margin-top: 1rem; }
-        </style>
-    </head>
-    <body>
-        <div class="container mt-4">
-            <h1 class="mb-4">Solid5 Scraper Admin</h1>
-            
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Scraping Status</h5>
-                        </div>
-                        <div class="card-body">
-                            <div id="stats">
-                                <p>Laatste scrape: <span id="last-scrape">-</span></p>
-                                <p>Totaal gemeenten: <span id="total-municipalities">-</span></p>
-                                <p>Succesvolle scrapes: <span id="successful-scrapes">-</span></p>
-                                <p>Mislukte scrapes: <span id="failed-scrapes">-</span></p>
-                                <p>Totaal vacatures: <span id="total-vacancies">-</span></p>
-                            </div>
-                            <div id="progress-container" style="display: none;">
-                                <p>Voortgang: <span id="progress-text">0/0</span></p>
-                                <div class="progress">
-                                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary mt-3" onclick="startScraping()">Start Scraping</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Logs</h5>
-                        </div>
-                        <div class="card-body" style="max-height: 400px; overflow-y: auto;">
-                            <div id="logs"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+async def admin_page(request: Request):
+    return templates.TemplateResponse("admin.html", {"request": request})
 
-        <script>
-            async function loadStats() {
-                try {
-                    const response = await fetch('/api/stats');
-                    const data = await response.json();
-                    
-                    document.getElementById('last-scrape').textContent = 
-                        data.last_scrape_time ? new Date(data.last_scrape_time).toLocaleString() : '-';
-                    document.getElementById('total-municipalities').textContent = data.total_municipalities;
-                    document.getElementById('total-vacancies').textContent = data.total_vacancies;
-                    document.getElementById('successful-scrapes').textContent = data.success_count;
-                    document.getElementById('failed-scrapes').textContent = data.error_count;
-                } catch (error) {
-                    console.error('Fout bij ophalen stats:', error);
+@app.post("/api/admin/start-scraping")
+async def start_scraping():
+    try:
+        # Start het scrapen in de achtergrond
+        asyncio.create_task(scrape_all_municipalities())
+        return {"status": "success", "message": "Scraping gestart"}
+    except Exception as e:
+        logger.error(f"Fout bij starten scraping: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/admin/status")
+async def get_scraping_status():
+    try:
+        async with aiosqlite.connect(DATABASE_URL) as db:
+            async with db.execute("SELECT COUNT(*) FROM vacancies") as cursor:
+                count = await cursor.fetchone()
+                return {
+                    "status": "running" if is_scraping else "idle",
+                    "total_vacancies": count[0] if count else 0,
+                    "current_municipality": current_municipality,
+                    "progress": (processed_municipalities / len(MUNICIPALITIES)) * 100 if MUNICIPALITIES else 0
                 }
-            }
-            
-            async function loadProgress() {
-                try {
-                    const response = await fetch('/api/progress');
-                    const data = await response.json();
-                    
-                    const progressContainer = document.getElementById('progress-container');
-                    const progressBar = document.getElementById('progress-bar');
-                    const progressText = document.getElementById('progress-text');
-                    const button = document.querySelector('button');
-                    
-                    if (data.status === 'running' || data.status === 'starting') {
-                        progressContainer.style.display = 'block';
-                        button.disabled = true;
-                        button.textContent = 'Bezig met scrapen...';
-                        
-                        const percentage = (data.current / data.total) * 100;
-                        progressBar.style.width = percentage + '%';
-                        progressText.textContent = `${data.current}/${data.total} gemeenten`;
-                    } else if (data.status === 'completed') {
-                        progressContainer.style.display = 'none';
-                        button.disabled = false;
-                        button.textContent = 'Start Scraping';
-                        loadStats(); // Ververs de statistieken
-                        loadLogs();  // Ververs de logs
-                    } else if (data.status === 'error') {
-                        progressContainer.style.display = 'none';
-                        button.disabled = false;
-                        button.textContent = 'Start Scraping';
-                        alert('Fout tijdens scrapen: ' + (data.error || 'Onbekende fout'));
-                    } else {
-                        progressContainer.style.display = 'none';
-                        button.disabled = false;
-                        button.textContent = 'Start Scraping';
-                    }
-                } catch (error) {
-                    console.error('Fout bij ophalen voortgang:', error);
-                    const button = document.querySelector('button');
-                    button.disabled = false;
-                    button.textContent = 'Start Scraping';
-                }
-            }
-            
-            async function loadLogs() {
-                try {
-                    const response = await fetch('/api/logs');
-                    const logs = await response.json();
-                    
-                    let html = '';
-                    logs.forEach(log => {
-                        const className = log.success ? 'success' : 'error';
-                        const icon = log.success ? '✅' : '❌';
-                        html += `<div class="log-entry ${className}">
-                            ${icon} ${log.municipality_name}: ${log.error_message || 'Succesvol'}
-                        </div>`;
-                    });
-                    
-                    document.getElementById('logs').innerHTML = html;
-                } catch (error) {
-                    console.error('Fout bij ophalen logs:', error);
-                }
-            }
-            
-            async function startScraping() {
-                try {
-                    const button = document.querySelector('button');
-                    button.disabled = true;
-                    button.textContent = 'Bezig met scrapen...';
-                    
-                    const response = await fetch('/api/scrape', { method: 'POST' });
-                    const data = await response.json();
-                    
-                    if (data.message === 'Scraping started') {
-                        document.getElementById('progress-container').style.display = 'block';
-                    } else {
-                        alert('Fout bij starten scraping: ' + (data.error || 'Onbekende fout'));
-                        button.disabled = false;
-                        button.textContent = 'Start Scraping';
-                    }
-                } catch (error) {
-                    console.error('Fout bij starten scraping:', error);
-                    alert('Fout bij starten scraping');
-                    const button = document.querySelector('button');
-                    button.disabled = false;
-                    button.textContent = 'Start Scraping';
-                }
-            }
-            
-            // Laad initiële data
-            loadStats();
-            loadLogs();
-            loadProgress();
-            
-            // Update elke 2 seconden
-            setInterval(() => {
-                loadStats();
-                loadLogs();
-                loadProgress();
-            }, 2000);
-        </script>
-    </body>
-    </html>
-    """
+    except Exception as e:
+        logger.error(f"Fout bij ophalen status: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/admin/municipalities", response_model=List[Municipality])
 async def get_municipalities_config():

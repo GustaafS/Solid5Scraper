@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solid5 Scraper Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { margin-bottom: 1rem; }
+        .log-entry { 
+            padding: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+            font-family: monospace;
+        }
+        .log-entry:last-child { border-bottom: none; }
+        .success { color: #198754; }
+        .error { color: #dc3545; }
+        .warning { color: #ffc107; }
+        .info { color: #0dcaf0; }
+        .progress { margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Solid5 Scraper Admin</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Scraping Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="stats">
+                            <p>Status: <span id="scraping-status">-</span></p>
+                            <p>Huidige gemeente: <span id="current-municipality">-</span></p>
+                            <p>Totaal vacatures: <span id="total-vacancies">-</span></p>
+                            <p>Voortgang: <span id="progress-text">0%</span></p>
+                        </div>
+                        <div class="progress">
+                            <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <button class="btn btn-primary mt-3" onclick="startScraping()">Start Scraping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadStatus() {
+            try {
+                const response = await fetch('/api/admin/status');
+                const data = await response.json();
+                
+                document.getElementById('scraping-status').textContent = data.status === 'running' ? 'Bezig met scrapen' : 'Gereed';
+                document.getElementById('current-municipality').textContent = data.current_municipality || '-';
+                document.getElementById('total-vacancies').textContent = data.total_vacancies;
+                document.getElementById('progress-text').textContent = `${Math.round(data.progress)}%`;
+                document.getElementById('progress-bar').style.width = `${data.progress}%`;
+                
+                const button = document.querySelector('button');
+                button.disabled = data.status === 'running';
+                button.textContent = data.status === 'running' ? 'Bezig met scrapen...' : 'Start Scraping';
+            } catch (error) {
+                console.error('Fout bij ophalen status:', error);
+            }
+        }
+        
+        async function startScraping() {
+            try {
+                const button = document.querySelector('button');
+                button.disabled = true;
+                button.textContent = 'Bezig met scrapen...';
+                
+                const response = await fetch('/api/admin/start-scraping', { method: 'POST' });
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    loadStatus();
+                } else {
+                    alert('Fout bij starten scraping: ' + (data.error || 'Onbekende fout'));
+                    button.disabled = false;
+                    button.textContent = 'Start Scraping';
+                }
+            } catch (error) {
+                console.error('Fout bij starten scraping:', error);
+                alert('Fout bij starten scraping');
+                const button = document.querySelector('button');
+                button.disabled = false;
+                button.textContent = 'Start Scraping';
+            }
+        }
+        
+        // Laad initiële data
+        loadStatus();
+        
+        // Update elke 2 seconden
+        setInterval(loadStatus, 2000);
+    </script>
+</body>
+</html> 
